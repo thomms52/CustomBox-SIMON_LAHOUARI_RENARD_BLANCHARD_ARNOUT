@@ -24,9 +24,9 @@ class ControleurCommande{
     public function AffichagePanier(Request $rq, Response $rs, array $args): Response {
 		if($rq->isPost()) {			
 			$c = new Commande();
-			$c->descr = $args['description'];
-			$c->couleur = $args['Couleur'];
-			$c->idboite = $args['taille'];
+			$c->descr =  filter_var($args['description'], FILTER_SANITIZE_STRING);
+			$c->couleur =  filter_var($args['Couleur'], FILTER_SANITIZE_STRING);
+			$c->idboite =  filter_var($args['taille'], FILTER_SANITIZE_NUMBER_FLOAT);
 			$c->save();
 		}
 		
