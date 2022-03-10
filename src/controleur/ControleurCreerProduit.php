@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Container;
-use custombox\view\VueCommande;
+use custombox\view\VueCreerProduit;
 
 class ControleurCreerProduit{
 	// ATTRIBUTS
