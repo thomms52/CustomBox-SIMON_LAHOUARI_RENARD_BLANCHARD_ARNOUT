@@ -3,11 +3,14 @@ declare(strict_types=1);
 
 # Chargement de l'autoload
 require_once __DIR__ . '/vendor/autoload.php';
+//require_once __DIR__ . '/src/conf/dbconfig.ini';
+//require_once __DIR__ . '/src/controleur/ControleurProduit.php';
+//require_once __DIR__ . '/src/view/VueGestionProduit.php';
 
 
+use custombox\controleur\ControleurCommande;
 use custombox\controleur\ControleurProduit;
 use custombox\view\VueGestionProduit;
-use custombox\controleur\ControleurCommande;
 use custombox\view\VueCommande;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -35,22 +38,29 @@ $app = new App($container);
 
 //Fonction 1, liste des produits
 
+$app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur1 = new ControleurProduit($container);
+    return $controleur1->affichageListeProduit($rq, $rs, $args);
+})->setName('afficherListe');
+
+
+
 $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur = new ControleurProduit($container);
-    return $controleur->affichageListeProduit($rq, $rs, $args);
+    $controleur1 = new ControleurProduit($container);
+    return $controleur1->affichageListeProduit($rq, $rs, $args);
 })->setName('afficherListe');
 
 
 //Fonction 2, liste commandes
 
 $app->get('/commandes[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur = new ControleurCommande($container);
-    return $controleur->AffichagePanier($rq, $rs, $args, false);
+    $controleur1 = new ControleurCommande($container);
+    return $controleur1->AffichagePanier($rq, $rs, $args, false);
 })->setName('afficherCommande');
 
 //Fonction 5, Création d'un produit 
 
-$app->get('/CreerProduit/[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
+$app->get('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
     $container = new VueCreerProduit($container);
     return $container->CreationFormulaire($rq,$rs,$args, false);
 })->setName('afficherFormulaire');
