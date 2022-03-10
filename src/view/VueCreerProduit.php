@@ -27,11 +27,11 @@ class VueCreerProduit{
             <legend id="ajd">Création d'un produit.</legend>
         <p class = "nom">
             <label for="nom">Entrez le nom du produit : </label>
-            <input type="text" name = "nom" id="nom" placeholder="nom" required>
+            <input type="text" name ="nom" id="nom" placeholder="nom" required>
         </p>
         <p class = "poids">
            <label for="poids>Entrez le poids du produit : " </label>
-           <input type="text" name = "poids" id ="poids" placeholder="poids"  required>
+           <input type="text" name ="poids" id ="poids" placeholder="poids"  required>
         </p>
            <input type="submit" value="Valider">
            </fieldset>

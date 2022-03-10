@@ -48,13 +48,6 @@ $app->get('/', function (Request $rq, Response $rs, array $args) use ($container
 
 //Fonction 1, liste des produits
 
-$app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur1 = new ControleurProduit($container);
-    return $controleur1->affichageListeProduit($rq, $rs, $args);
-})->setName('afficherListe');
-
-
-
 $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
     $controleur1 = new ControleurProduit($container);
     return $controleur1->affichageListeProduit($rq, $rs, $args);
