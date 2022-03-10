@@ -21,7 +21,7 @@ $config = ['settings' => ['displayErrorDetails' => true, 'dbconf' => __DIR__.'/s
 # Connection a la base de donnees MYSQL
 # Chargement du module Eloquent
 $db = new DB();
-$db->addConnection(parse_ini_file(__DIR__.'/src/config/dbconfig.ini'));
+$db->addConnection(parse_ini_file(__DIR__.'/src/conf/dbconfig.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
 
