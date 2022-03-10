@@ -9,4 +9,5 @@ composer.lock
 /.*
 *.ini
 *.local
+*.bak
 img/*

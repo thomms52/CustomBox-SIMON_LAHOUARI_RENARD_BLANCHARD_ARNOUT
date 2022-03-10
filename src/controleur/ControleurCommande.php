@@ -11,7 +11,7 @@ use Slim\Container;
 
 
 
-class ContrloleurGestionProduit
+class ControleurCommande
 {
 
 }

@@ -21,7 +21,7 @@ $config = ['settings' => ['displayErrorDetails' => true, 'dbconf' => __DIR__.'/s
 # Connection a la base de donnees MYSQL
 # Chargement du module Eloquent
 $db = new DB();
-$db->addConnection(parse_ini_file(__DIR__.'/src/config/dbconfig.ini'));
+$db->addConnection(parse_ini_file(__DIR__.'/src/conf/dbconfig.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
 
@@ -38,4 +38,11 @@ $app->get('/listeProduit/[/]', function (Request $rq, Response $rs, array $args)
     $controleur = new ControlerGestionProduit($container);
     return $controleur->AffichageListe($rq, $rs, $args, false);
 })->setName('afficherListe');
+
+//Fonction 2, liste commandes
+
+$app->get('/commandes/[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControlerCommande($container);
+    return $controleur->AffichagePanier($rq, $rs, $args, false);
+})->setName('afficherCommande');
 
