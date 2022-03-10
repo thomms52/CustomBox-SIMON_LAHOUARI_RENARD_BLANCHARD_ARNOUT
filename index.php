@@ -12,6 +12,8 @@ use custombox\controleur\ControleurCommande;
 use custombox\controleur\ControleurProduit;
 use custombox\view\VueGestionProduit;
 use custombox\view\VueCommande;
+use custombox\view\VueCreerProduit;
+use custombox\view\ControleurCreerProduit;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -35,6 +37,16 @@ $app = new App($container);
 
 
 ########    LES ROUTES  #######
+
+
+//acceuil
+
+$app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControlerRacine($container);
+    return $controleur->racine($rq, $rs, $args);
+})->setName('accueil');
+
+
 
 //Fonction 1, liste des produits
 
@@ -61,8 +73,9 @@ $app->get('/commandes[/]', function (Request $rq, Response $rs, array $args) use
 //Fonction 5, Création d'un produit 
 
 $app->get('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
-    $container = new VueCreerProduit($container);
-    return $container->CreationFormulaire($rq,$rs,$args, false);
+    $container = new ControleurCreerProduit($container);
+    return $container->AffichageCreerProduit($rq,$rs,$args, false);
+
 })->setName('afficherFormulaire');
 
 
