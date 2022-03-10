@@ -5,12 +5,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 
+
 use custombox\controleur\ControleurCommande;
 use custombox\controleur\ControleurProduit;
 use custombox\view\VueGestionProduit;
 use custombox\view\VueCommande;
 use custombox\view\VueCreerProduit;
-use custombox\view\ControleurCreerProduit;
+use custombox\controleur\ControleurCreerProduit;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -65,12 +66,22 @@ $app->post('/commandes[/]', function (Request $rq, Response $rs, array $args) us
 })->setName('afficherCommande');
 
 //Fonction 5, Création d'un produit 
-
 $app->get('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
     $container = new ControleurCreerProduit($container);
-    return $container->AffichageCreerProduit($rq,$rs,$args, false);
+    return $container->AffichageCreerProduit($rq,$rs,$args);
 
 })->setName('afficherFormulaire');
+
+
+$app->post('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
+    $container = new ControleurCreerProduit($container);
+    return $container->AffichageCreerProduit($rq,$rs,$_POST);
+
+})->setName('afficherFormulaire');
+
+
+
+
 
 
 # On lance l'app

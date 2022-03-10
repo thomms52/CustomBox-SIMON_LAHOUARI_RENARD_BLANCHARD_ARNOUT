@@ -29,10 +29,6 @@ class VueGestionProduit
 
             $urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
 
-
-            echo $urlImg."<br>";
-
-
             $res .= <<<END
                 <div class="row align-items-center">
             
