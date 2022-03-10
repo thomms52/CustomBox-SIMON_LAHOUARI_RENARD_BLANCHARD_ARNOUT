@@ -20,7 +20,7 @@ class ControleurCreerProduit{
 
     public function AffichageCreerProduit(Request $rq, Response $rs,$args): Response {
         $vue = new VueCreerProduit($this->container);
-		$html = $vue->render();
+		$html = $vue->render(1);
         $rs->getBody()->write($html);     
         return $rs;
     }

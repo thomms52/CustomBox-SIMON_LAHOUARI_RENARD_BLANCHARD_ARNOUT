@@ -8,9 +8,20 @@ use Slim\Container;
 use custombox\modele\Produit;
 
 class VueCreerProduit{
+
+    // ATTRIBUTS
+    private $container;
+
+    // CONSTRUCTEUR
+    public function __construct(Container $c)
+    {
+        $this->container = $c;
+    }
+
+
     
-    public static function CreationFormulaire(Request $rq, Response $rs, $args):Response {
-    $rs->getBody()->write(<<<END
+    public function CreationFormulaire():string {
+    $rs= <<<END
     <form class="formulaire" method="post">
         <fieldset>
             <legend id="ajd">Création d'un produit.</legend>
@@ -59,8 +70,25 @@ class VueCreerProduit{
     </style>
 </body>
 </html>
-END);
+END;
         return $rs;
+    }
+
+    public function render(int $selecteur, $arg1 = null, $arg2 = null): string
+    {
+        $content = "";
+        switch ($selecteur) {
+            case 1:
+            {
+
+                $content = $this->CreationFormulaire();
+                break;
+            }
+        }
+        $vue = new VueRender($this->container);
+        return $vue->render($content);
+
+
     }
 
 
