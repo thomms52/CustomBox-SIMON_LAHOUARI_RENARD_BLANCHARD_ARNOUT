@@ -5,9 +5,10 @@ declare(strict_types=1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 
-use custombox\controleur\ControlerGestionProduit;
+use custombox\controleur\ControleurGestionProduit;
 use custombox\view\VueGestionProduit;
-
+use custombox\controleur\ControleurCommande;
+use custombox\view\VueCommande;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -16,7 +17,7 @@ use Slim\App;
 use Slim\Container;
 
 # Installation de la configuration erreur de Slim
-$config = ['settings' => ['displayErrorDetails' => true, 'dbconf' => __DIR__.'/src/config/dbconfig.ini']];
+$config = ['settings' => ['displayErrorDetails' => true, 'dbconf' => __DIR__.'/src/conf/dbconfig.ini']];
 
 # Connection a la base de donnees MYSQL
 # Chargement du module Eloquent
@@ -34,15 +35,16 @@ $app = new App($container);
 
 //Fonction 1, liste des produits
 
-$app->get('/listeProduit/[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur = new ControlerGestionProduit($container);
-    return $controleur->AffichageListe($rq, $rs, $args, false);
+$app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControleurGestionProduit($container);
+    return $controleur->affichageListeProduit($rq, $rs, $args);
 })->setName('afficherListe');
+
 
 //Fonction 2, liste commandes
 
-$app->get('/commandes/[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur = new ControlerCommande($container);
+$app->get('/commandes[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControleurCommande($container);
     return $controleur->AffichagePanier($rq, $rs, $args, false);
 })->setName('afficherCommande');
 
@@ -52,3 +54,8 @@ $app->get('/CreerProduit/[/]', function (Request $rq, Response $rs, array $args)
     $container = new VueCreerProduit($container);
     return $container->CreationFormulaire($rq,$rs,$args, false);
 })->setName('afficherFormulaire');
+
+
+# On lance l'app
+
+$app->run();
