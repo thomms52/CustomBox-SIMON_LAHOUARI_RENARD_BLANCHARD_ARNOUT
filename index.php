@@ -39,3 +39,10 @@ $app->get('/listeProduit/[/]', function (Request $rq, Response $rs, array $args)
     return $controleur->AffichageListe($rq, $rs, $args, false);
 })->setName('afficherListe');
 
+//Fonction 2, liste commandes
+
+$app->get('/commandes/[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControlerCommande($container);
+    return $controleur->AffichagePanier($rq, $rs, $args, false);
+})->setName('afficherCommande');
+
