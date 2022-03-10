@@ -14,37 +14,30 @@ class VueCommande {
 		<p id="titre">Commandes</p>
 		
 		<div class="cartonGauche">
-			<div> 
+			<form class="formulaire" method="post">
 				<img src="../images/box.svg">
-				
-				<button class="favorite styled"
-					type="button">
-						Grand
-				</button>
-				
-				<button class="favorite styled"
-					type="button">
-						Moyen
-				</button>
-				
-				<button class="favorite styled"
-					type="button">
-						Petit
-				</button>
-							
+			
+				<input type="button" class="favorite styled" type="button"> Grand</button>
+				<input type="button" class="favorite styled" type="button"> Moyen</button>
+				<input type="button" class="favorite styled" type="button"> Petit</button>
+			
+			<fieldset>
 				<div>
 					<input type="color" id="Couleur" name="Couleur"
 					value="#ffffff">
 					<label for="head">Couleur</label>
 				</div>
-				
-				<form method="post" action="traitement.php">
+					
 					<p>
 						<label for="ameliorer">Quel est la description de la boite ?</label><br />
 						<textarea name="ameliorer" id="ameliorer"></textarea>
 					</p>
-				</form>
-			</div>
+					
+			   <input type="submit" value="Valider">
+			   
+			   
+			   </fieldset>
+			</form>
 			
 		</div>
 		<div class="cartonDroite">
