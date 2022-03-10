@@ -27,5 +27,10 @@ class Boite extends \Illuminate\Database\Eloquent\Model
     {
         return $this->belongsTo('\custombox\modele\Produit', 'id');
     }
+	
+	public function commande()
+    {
+        return $this->belongsTo('\custombox\modele\Commande', 'idBoite');
+    }
 
 }

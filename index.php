@@ -40,12 +40,10 @@ $app = new App($container);
 
 
 //acceuil
-
 $app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
     $controleur = new ControlerRacine($container);
     return $controleur->racine($rq, $rs, $args);
 })->setName('accueil');
-
 
 
 //Fonction 1, liste des produits
@@ -68,6 +66,12 @@ $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) 
 $app->get('/commandes[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
     $controleur1 = new ControleurCommande($container);
     return $controleur1->AffichagePanier($rq, $rs, $args, false);
+})->setName('afficherCommande');
+
+
+$app->post('/commandes[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControleurCommande($container);
+    return $controleur->AffichagePanier($rq, $rs, $_POST);
 })->setName('afficherCommande');
 
 //Fonction 5, Création d'un produit 

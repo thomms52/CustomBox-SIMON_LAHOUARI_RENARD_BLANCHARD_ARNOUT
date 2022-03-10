@@ -16,25 +16,30 @@ class VueCommande {
 		<div class="cartonGauche">
 			<form class="formulaire" method="post">
 				<img src="../images/box.svg">
-			
-				<input type="button" class="favorite styled" type="button"> Grand</button>
-				<input type="button" class="favorite styled" type="button"> Moyen</button>
-				<input type="button" class="favorite styled" type="button"> Petit</button>
+
+				<label for="listePublic" class="form-label">Taille de la boite</label><br>
+				
+                <label for="taille" class="form-label">Grande</label>
+                <input type="radio" value="3" class="form-control" name="taille" placeholder="" required $p_grande>
+				
+                <label for="taille" class="form-label">Moyenne</label>
+                <input type="radio" value="2" class="form-control" name="taille" placeholder="" required $p_moyenne>
+				
+				<label for="taille" class="form-label">Petite</label>
+                <input type="radio" value="1" class="form-control" name="taille" placeholder="" required $p_petite>
 			
 			<fieldset>
 				<div>
-					<input type="color" id="Couleur" name="Couleur"
-					value="#ffffff">
+					<input type="color" id="Couleur" name="Couleur">
 					<label for="head">Couleur</label>
 				</div>
 					
 					<p>
 						<label for="ameliorer">Quel est la description de la boite ?</label><br />
-						<textarea name="ameliorer" id="ameliorer"></textarea>
+						<textarea name="description" id="description"></textarea>
 					</p>
 					
 			   <input type="submit" value="Valider">
-			   
 			   
 			   </fieldset>
 			</form>
@@ -50,9 +55,7 @@ class VueCommande {
 	
 	public function render() {
         $content = $this->CreationCommande();
-		
-		
-        
+
         $html = <<<END
             <!DOCTYPE html>
             <html>
