@@ -5,7 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 
-use custombox\controleur\ControleurGestionProduit;
+use custombox\controleur\ControleurProduit;
 use custombox\view\VueGestionProduit;
 use custombox\controleur\ControleurCommande;
 use custombox\view\VueCommande;
@@ -36,7 +36,7 @@ $app = new App($container);
 //Fonction 1, liste des produits
 
 $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur = new ControleurGestionProduit($container);
+    $controleur = new ControleurProduit($container);
     return $controleur->affichageListeProduit($rq, $rs, $args);
 })->setName('afficherListe');
 
