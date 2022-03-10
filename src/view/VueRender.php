@@ -33,14 +33,13 @@ class VueRender
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
                 <link rel="stylesheet" href="{$this->container->router->pathFor("accueil")}assets/fonts/simple-line-icons.min.css">
                 <link rel="stylesheet" href="{$this->container->router->pathFor("accueil")}assets/css/vanilla-zoom.min.css">
-                <link rel="stylesheet" href="{$this->container->router->pathFor("accueil")}css/style.css">
+                <link rel="stylesheet" href="{$this->container->router->pathFor("accueil")}css/StyleCommande.css">
 
             </head>
             <body>
                 <header>
                     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
                         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                            <div class="collapse navbar-collapse" id="navcol-1"><a class="nav-link" href=""><img class="logoPrincipal" src="assets/img/MyWishList_logo.png"></a>
                                 <ul class="navbar-nav ms-auto">
                                     <li class="nav-item"><a class="nav-link" href=""><p class="textNav">Accueil</p></a></li>
                                     <li class="nav-item"><a class="nav-link" href=""><p class="textNav">Listes publique</p></a></li>
@@ -61,11 +60,7 @@ class VueRender
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
                 <script src="assets/js/vanilla-zoom.js"></script>
                 <script src="assets/js/theme.js"></script>
-                <footer>
-                    <div class="clean-block add-on call-to-action blue">
-                        <p class="auteurs">Auteurs: Nous<br></p>
-                    </div>          
-                </footer>
+              
             </body>
         </html> 
 END;

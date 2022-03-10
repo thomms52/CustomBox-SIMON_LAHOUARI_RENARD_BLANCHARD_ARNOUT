@@ -20,13 +20,15 @@ class VueCommande {
     }
 	
 	private function CreationCommande($produits): String {
+        $urlImg ="{$this->container->router->pathFor('accueil')}images/box.svg";
+
         $content = '';
         $content.='
 		<p id="titre">Commandes</p>
 		
 		<div class="cartonGauche">
 			<form class="formulaire" method="post">
-				<img src="../images/box.svg">
+				<img src=$urlImg>
 
 				<label for="listePublic" class="form-label">Taille de la boite</label><br>
 				
@@ -91,10 +93,14 @@ END;
             <html>
             <body><head><link rel="stylesheet" href="../css/StyleCommande.css">
             </head>
+            <br><br><br><br><br><br>
+
                 $content
             </body>
             </html>
             END ;
-        return $html;
+
+        $vue = new VueRender($this->container);
+        return $vue->render($html);
     }
 }
