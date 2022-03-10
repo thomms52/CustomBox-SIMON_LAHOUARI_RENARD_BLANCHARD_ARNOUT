@@ -2,10 +2,8 @@
 declare(strict_types=1);
 
 # Chargement de l'autoload
-require_once __DIR__ .'/vendor/autoload.php';
-//require_once __DIR__ . '/src/conf/dbconfig.ini';
-//require_once __DIR__ . '/src/controleur/ControleurProduit.php';
-//require_once __DIR__ . '/src/view/VueGestionProduit.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
 
 
 use custombox\controleur\ControleurCommande;
