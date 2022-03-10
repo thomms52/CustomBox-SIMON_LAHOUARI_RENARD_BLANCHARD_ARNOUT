@@ -22,6 +22,10 @@ class VueCreerProduit{
            <label for="poids>Entrez le poids du produit : " </label>
            <input type="text" name = "poids" id ="poids" placeholder="poids"  required>
         </p>
+        <p class = "Description">
+        <label for="description>Entrez la description du produit : " </label>
+        <input type="text" name = "description" id ="description" placeholder="description"  required>
+        </p>
            <input type="submit" value="Valider">
            </fieldset>
         </form>

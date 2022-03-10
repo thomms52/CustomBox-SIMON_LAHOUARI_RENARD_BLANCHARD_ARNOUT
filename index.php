@@ -75,12 +75,22 @@ $app->post('/commandes[/]', function (Request $rq, Response $rs, array $args) us
 })->setName('afficherCommande');
 
 //Fonction 5, Création d'un produit 
-
 $app->get('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
     $container = new ControleurCreerProduit($container);
-    return $container->AffichageCreerProduit($rq,$rs,$args, false);
+    return $container->AffichageCreerProduit($rq,$rs,$args);
 
 })->setName('afficherFormulaire');
+
+
+$app->post('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response{
+    $container = new ControleurCreerProduit($container);
+    return $container->AffichageCreerProduit($rq,$rs,$_POST);
+
+})->setName('afficherFormulaire');
+
+
+
+
 
 
 # On lance l'app
