@@ -33,6 +33,16 @@ $app = new App($container);
 
 ########    LES ROUTES  #######
 
+
+//acceuil
+
+$app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
+    $controleur = new ControlerRacine($container);
+    return $controleur->racine($rq, $rs, $args);
+})->setName('accueil');
+
+
+
 //Fonction 1, liste des produits
 
 $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {

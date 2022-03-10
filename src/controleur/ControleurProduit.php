@@ -30,7 +30,7 @@ class ControleurProduit
 
 
         $produits= Produit::get();
-        var_dump($produits);
+        //var_dump($produits);
 
         $rs->getBody()->write($vue->render(1, $produits));
 

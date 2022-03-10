@@ -21,13 +21,45 @@ class VueGestionProduit
     }
 
 
-    private function htmlAfficherProduit($args1)
+    private function htmlAfficherProduit($produits) : string
     {
-        $html = <<<END
-                        <h2 class="text-info">Modification des informations d'une liste</h2>
 
+        $res="";
+        foreach ($produits as $produitsCurr) {
+
+            $urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
+
+
+            echo $urlImg."<br>";
+
+
+            $res .= <<<END
+                <div class="row align-items-center">
+            
+                <h3>{$produitsCurr->id}. {$produitsCurr->titre}</h3>
+                
+                <div class="col-md-6Img"><img class="img-thumbnail imgItem" src="$urlImg"/></div>
+            <div class="col-md-6Texte">
+               
+                <div class="getting-started-info">
+                    <p>{$produitsCurr->description}</p>
+                </div>
+                <p>{$produitsCurr->poids}</p>
+            </div>
+        </div>
+END;
+
+
+        }
+
+        $html = <<<END
+                        <h2 class="text-info">Liste des produits</h2>
+
+
+                        $res
 
 END;
+
         return $html;
 
     }
