@@ -38,9 +38,9 @@ class VueGestionProduit
             <div class="col-md-6Texte">
                
                 <div class="getting-started-info">
-                    <p>{$produitsCurr->description}</p>
+                    <p><h4>Description : </h4><br>{$produitsCurr->description}</p>
                 </div>
-                <p>{$produitsCurr->poids}</p>
+                <p>Poids du produit : {$produitsCurr->poids}</p>
             </div>
         </div>
 END;
@@ -49,6 +49,7 @@ END;
         }
 
         $html = <<<END
+                        <br><br><br><br>
                         <h2 class="text-info">Liste des produits</h2>
 
 

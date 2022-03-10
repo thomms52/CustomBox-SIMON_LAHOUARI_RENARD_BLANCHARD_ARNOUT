@@ -22,6 +22,7 @@ class VueCreerProduit{
     
     public function CreationFormulaire():string {
     $rs= <<<END
+<br><br><br><br><br><br><br><br>
     <form class="formulaire" method="post">
         <fieldset>
             <legend id="ajd">Création d'un produit.</legend>
