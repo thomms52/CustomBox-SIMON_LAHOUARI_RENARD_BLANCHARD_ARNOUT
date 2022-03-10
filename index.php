@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 # Chargement de l'autoload
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ .'/vendor/autoload.php';
 //require_once __DIR__ . '/src/conf/dbconfig.ini';
 //require_once __DIR__ . '/src/controleur/ControleurProduit.php';
 //require_once __DIR__ . '/src/view/VueGestionProduit.php';
@@ -13,7 +13,7 @@ use custombox\controleur\ControleurProduit;
 use custombox\view\VueGestionProduit;
 use custombox\view\VueCommande;
 use custombox\view\VueCreerProduit;
-use custombox\view\ControleurCreerProduit;
+use custombox\controleur\ControleurCreerProduit;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -47,13 +47,6 @@ $app->get('/', function (Request $rq, Response $rs, array $args) use ($container
 
 
 //Fonction 1, liste des produits
-
-$app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur1 = new ControleurProduit($container);
-    return $controleur1->affichageListeProduit($rq, $rs, $args);
-})->setName('afficherListe');
-
-
 
 $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
     $controleur1 = new ControleurProduit($container);
