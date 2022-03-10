@@ -23,9 +23,9 @@ class Boite extends \Illuminate\Database\Eloquent\Model
 
     // CONSTRUCTEUR
 
-    public function items()
+    public function produit()
     {
-        return $this->hasMany('\mywishlist\modele\Item', 'liste_id');
+        return $this->belongsTo('\custombox\modele\Produit', 'id');
     }
 
 }

@@ -28,4 +28,9 @@ class Produit extends \Illuminate\Database\Eloquent\Model
         return $this->hasMany('\custombox\modele\Categorie', 'id');
     }
 
+    public function boite()
+    {
+        return $this->hasMany('\custombox\modele\Boite', 'id');
+    }
+
 }
