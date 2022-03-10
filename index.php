@@ -7,7 +7,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use custombox\controleur\ControleurGestionProduit;
 use custombox\view\VueGestionProduit;
-
+use custombox\controleur\ControleurCommande;
+use custombox\view\VueCommande;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -39,19 +40,21 @@ $app->get('/listeProduit[/]', function (Request $rq, Response $rs, array $args) 
     return $controleur->affichageListeProduit($rq, $rs, $args);
 })->setName('afficherListe');
 
+
 //Fonction 2, liste commandes
 
 $app->get('/commandes[/]', function (Request $rq, Response $rs, array $args) use ($container): Response {
-    $controleur = new ControlerCommande($container);
+    $controleur = new ControleurCommande($container);
     return $controleur->AffichagePanier($rq, $rs, $args, false);
 })->setName('afficherCommande');
 
-
+/*
 
 $app->get('/CreerProduit[/]', function (Request $rq, Response $rs, array $args) use ($view): Response{
     $view = new VueCreerProduit($view);
     return $view->CreationFormulaire($rq,$rs,$args, false);
 })->setName('afficherFormulaire');
+*/
 
 
 # On lance l'app
