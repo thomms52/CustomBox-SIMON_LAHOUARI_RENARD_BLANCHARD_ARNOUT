@@ -46,3 +46,7 @@ $app->get('/commandes/[/]', function (Request $rq, Response $rs, array $args) us
     return $controleur->AffichagePanier($rq, $rs, $args, false);
 })->setName('afficherCommande');
 
+$app->get('/CreerProduit/[/]', function (Request $rq, Response $rs, array $args) use ($view): Response{
+    $view = new VueCreerProduit($view);
+    return $view->CreationFormulaire($rq,$rs,$args, false);
+})->setName('afficherFormulaire');
