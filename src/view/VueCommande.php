@@ -8,7 +8,9 @@ use custombox\modele\Produit;
 
 class VueCommande {
 	
-	private function CreationCommande(): String {
+	private function CreationCommande($produits): String {
+		$urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
+
         $content = '';
         $content.='
 		<p id="titre">Commandes</p>
@@ -45,16 +47,37 @@ class VueCommande {
 			</form>
 			
 		</div>
-		<div class="cartonDroite">
-			<p>Carton mais à droite</p>
-		</div>
 		';
+
+        foreach ($produits as $produitsCurr) {
+
+            $urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
+
+            echo $urlImg."<br>";
+
+            $content .='
+			<div class="cartonDroite">
+                <div class="row align-items-center">
+            
+					<h3>{$produitsCurr->id}. {$produitsCurr->titre}</h3>
+					
+					<div class="col-md-6Img"><img class="img-thumbnail imgItem" src="$urlImg"/></div>
+					
+					<div class="col-md-6Texte">
+				   
+						<div class="getting-started-info">
+							<p>{$produitsCurr->description}</p>
+						</div>
+						<p>{$produitsCurr->poids}</p>
+					</div>
+				</div>
+			</div>';
         return $content;
     }
 
 	
-	public function render() {
-        $content = $this->CreationCommande();
+	public function render($args) {
+        $content = $this->CreationCommande($args);
 
         $html = <<<END
             <!DOCTYPE html>

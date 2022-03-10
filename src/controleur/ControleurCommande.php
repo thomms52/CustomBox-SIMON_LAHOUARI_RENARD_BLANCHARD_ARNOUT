@@ -9,6 +9,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Container;
 use custombox\view\VueCommande;
 use custombox\modele\Commande;
+use custombox\modele\Produit;
+use custombox\view\VueGestionProduit;
 
 class ControleurCommande{
 	// ATTRIBUTS
@@ -20,9 +22,7 @@ class ControleurCommande{
     }
 
     public function AffichagePanier(Request $rq, Response $rs, array $args): Response {
-		if($rq->isPost()) {
-			var_dump ($args);
-			
+		if($rq->isPost()) {			
 			$c = new Commande();
 			$c->descr = $args['description'];
 			$c->couleur = $args['Couleur'];
@@ -30,9 +30,10 @@ class ControleurCommande{
 			$c->save();
 		}
 		
+		$produits= Produit::get();
 		
         $vue = new VueCommande($this->container);
-		$html = $vue->render();
+		$html = $vue->render($produits);
         $rs->getBody()->write($html);     
         return $rs;
     }

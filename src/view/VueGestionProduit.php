@@ -7,6 +7,8 @@ namespace custombox\view;
 use Slim\Container;
 use custombox\modele\Produit;
 use \Illuminate\Database\Eloquent\Collection;
+use custombox\modele\Produit;
+
 
 class VueGestionProduit
 {

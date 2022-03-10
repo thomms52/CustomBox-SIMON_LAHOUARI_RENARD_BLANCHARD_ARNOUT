@@ -32,6 +32,10 @@
 	float : left;
 }
 
+.form-label {
+		text-align:center;
+}
+
 .cartonDroite{
   background-color: #FFD7C2;
   float : right
