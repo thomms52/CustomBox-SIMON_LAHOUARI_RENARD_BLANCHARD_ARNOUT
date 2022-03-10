@@ -24,7 +24,7 @@ class VueCommande {
 
         $content = '';
         $content.='
-		<p id="titre">Commandes</p>
+		<h1 id="titre">Faire une commande</h1>
 		
 		<div class="cartonGauche">
 			<form class="formulaire" method="post">

@@ -8,6 +8,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use custombox\controleur\ControleurCommande;
 use custombox\controleur\ControleurProduit;
+use custombox\controleur\ControlerRacine;
+
 use custombox\view\VueGestionProduit;
 use custombox\view\VueCommande;
 use custombox\view\VueCreerProduit;
@@ -40,7 +42,7 @@ $app = new App($container);
 //acceuil
 $app->get('/', function (Request $rq, Response $rs, array $args) use ($container): Response {
     $controleur = new ControlerRacine($container);
-    return $controleur->racine($rq, $rs, $args);
+    return $controleur->affichageRacine($rq, $rs, $args);
 })->setName('accueil');
 
 

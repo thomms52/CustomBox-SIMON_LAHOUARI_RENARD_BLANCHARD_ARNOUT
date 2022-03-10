@@ -41,9 +41,10 @@ class VueRender
                     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
                         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                                 <ul class="navbar-nav ms-auto">
-                                    <li class="nav-item"><a class="nav-link" href=""><p class="textNav">Accueil</p></a></li>
-                                    <li class="nav-item"><a class="nav-link" href=""><p class="textNav">Listes publique</p></a></li>
-                                    <li class="nav-item"><a class="nav-link" href=""><p class="textNav">Se connecter</p></a></li>
+                                  <li class="nav-item"><a class="nav-link" href="{$this->container->router->pathFor("accueil")}"><p class="textNav">Accueil</p></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{$this->container->router->pathFor("afficherListe")}"><p class="textNav">Liste produit</p></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{$this->container->router->pathFor("afficherCommande")}"><p class="textNav">Faire commande</p></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{$this->container->router->pathFor("afficherFormulaire")}"><p class="textNav">Créer produit</p></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -56,10 +57,7 @@ class VueRender
                             </div>
                         </section>
                     </main>
-                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-                <script src="assets/js/vanilla-zoom.js"></script>
-                <script src="assets/js/theme.js"></script>
+                
               
             </body>
         </html> 
