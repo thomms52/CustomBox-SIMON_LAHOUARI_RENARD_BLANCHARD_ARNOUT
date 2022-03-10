@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-
 namespace custombox\controleur;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -10,9 +9,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Container;
 use custombox\view\VueCommande;
 
-
-class ControleurCommande
-{
+class ControleurCommande{
 	// ATTRIBUTS
     private $container;
 
@@ -21,15 +18,10 @@ class ControleurCommande
         $this->container = $container;
     }
 
-
     public function AffichagePanier(Request $rq, Response $rs, array $args): Response {
-        
-            $vue = new VueCommande($this->container);
-
-           
-        
-
-        
+        $vue = new VueCommande($this->container);
+		$html = $vue->render();
+        $rs->getBody()->write($html);     
         return $rs;
     }
 

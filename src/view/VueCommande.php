@@ -8,16 +8,26 @@ use custombox\modele\Produit;
 
 class VueCommande {
 	
-	 public static function CreationCommande(Request $rq, Response $rs, $args):Response {
-		/*
-		$rs->getBody()->write(<<<END
-			<h1>Commandes</h1>
-        </body>
-		</html>
-		END);
-        return $rs;
-		*/
+	private function CreationCommande(): String {
+        $content = '';
+        $content.='<h1>Commandes</h1>';
+        return $content;
     }
 
+	
+	public function render() {
+        $content = $this->CreationCommande();
+        
+        $html = <<<END
+            <!DOCTYPE html>
+            <html>
+            <body><head>
 
+            </head>
+                $content
+            </body>
+            </html>
+            END ;
+        return $html;
+    }
 }
