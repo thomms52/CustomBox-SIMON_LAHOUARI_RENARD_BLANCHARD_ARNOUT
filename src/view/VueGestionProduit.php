@@ -7,8 +7,6 @@ namespace custombox\view;
 use Slim\Container;
 use custombox\modele\Produit;
 use \Illuminate\Database\Eloquent\Collection;
-use custombox\modele\Produit;
-
 
 class VueGestionProduit
 {
@@ -30,10 +28,6 @@ class VueGestionProduit
         foreach ($produits as $produitsCurr) {
 
             $urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
-
-
-            echo $urlImg."<br>";
-
 
             $res .= <<<END
                 <div class="row align-items-center">

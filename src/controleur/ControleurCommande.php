@@ -30,7 +30,7 @@ class ControleurCommande{
 			$c->save();
 		}
 		
-		$produits= Produit::get();
+		$produits = Produit::get();
 		
         $vue = new VueCommande($this->container);
 		$html = $vue->render($produits);

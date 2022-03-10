@@ -6,11 +6,20 @@ namespace custombox\view;
 use Slim\Container;
 use custombox\modele\Produit;
 
+use \Illuminate\Database\Eloquent\Collection;
+
 class VueCommande {
 	
-	private function CreationCommande($produits): String {
-		$urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
+	// ATTRIBUTS
+    private $container;
 
+    // CONSTRUCTEUR
+    public function __construct(Container $c)
+    {
+        $this->container = $c;
+    }
+	
+	private function CreationCommande($produits): String {
         $content = '';
         $content.='
 		<p id="titre">Commandes</p>
@@ -47,31 +56,29 @@ class VueCommande {
 			</form>
 			
 		</div>
+		<div class="cartonDroite">
 		';
 
         foreach ($produits as $produitsCurr) {
 
             $urlImg ="{$this->container->router->pathFor('accueil')}images/produits/{$produitsCurr->id}.jpg";
 
-            echo $urlImg."<br>";
-
-            $content .='
-			<div class="cartonDroite">
+            $content .= <<<END
                 <div class="row align-items-center">
             
-					<h3>{$produitsCurr->id}. {$produitsCurr->titre}</h3>
-					
-					<div class="col-md-6Img"><img class="img-thumbnail imgItem" src="$urlImg"/></div>
-					
-					<div class="col-md-6Texte">
-				   
-						<div class="getting-started-info">
-							<p>{$produitsCurr->description}</p>
-						</div>
-						<p>{$produitsCurr->poids}</p>
-					</div>
-				</div>
-			</div>';
+                <h3>{$produitsCurr->id}. {$produitsCurr->titre}</h3>
+                
+                <div class="col-md-6Img"><img class="img-thumbnail imgItem" src="$urlImg"/></div>
+            <div class="col-md-6Texte">
+
+                <p>{$produitsCurr->poids}</p>
+            </div>
+        </div>
+END;
+		}
+		
+		$content .='</div>';
+		
         return $content;
     }
 
